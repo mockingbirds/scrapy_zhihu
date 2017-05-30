@@ -52,9 +52,10 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'zhihu.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   # 'zhihu.middlewares.MyCustomDownloaderMiddleware': 543,
+    'zhihu.middlewares.RandomUserAgentMiddleware': 400,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -66,7 +67,7 @@ ROBOTSTXT_OBEY = False
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'zhihu.pipelines.ZhihuPipeline': 300,
-   # 'zhihu.pipelines.MyTwistedPipeline': 1,
+   'zhihu.pipelines.MyTwistedPipeline': 1,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
