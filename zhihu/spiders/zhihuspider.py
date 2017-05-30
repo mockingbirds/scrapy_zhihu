@@ -2,6 +2,7 @@
 import scrapy
 from bs4 import BeautifulSoup
 import json
+from urllib import parse
 
 class ZhihuspiderSpider(scrapy.Spider):
     name = 'zhihuspider'
@@ -16,7 +17,10 @@ class ZhihuspiderSpider(scrapy.Spider):
     }
 
     def parse(self, response):
-        print(response.text)
+
+        all_urls = response.css('a::attr(href)').extract()
+        all_urls = [parse.urljoin(response.url, url) for url in all_urls]
+        all_urls = filter(lambda x : True if x.startswith('https') else False, all_urls)
         pass
 
     # spider入口方法
@@ -32,8 +36,8 @@ class ZhihuspiderSpider(scrapy.Spider):
         if xsrf:
             login_data = {
                 '_xsrf': xsrf,
-                'phone_num': '这里填写手机号码',
-                'password': '这里填写密码',
+                'phone_num': '18710840788',
+                'password': 'liuhanghahatest2580',
                 'captcha': ''
             }
             # 由于登录需要验证码,因此需要先获取验证码,在do_login_after_captcha回调获取验证码,封装传递的login_data参数
