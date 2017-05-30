@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'zhihu.pipelines.ZhihuPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   # 'zhihu.pipelines.ZhihuPipeline': 300,
+   # 'zhihu.pipelines.MyTwistedPipeline': 1,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +89,12 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+MYSQL_HOST='localhost'
+MYSQL_PORT=3306
+MYSQL_USER='root'
+MYSQL_PWD='root'
+MYSQL_DB='lagoudatabase'
+MYSQL_CHARSET='utf8'
+MYSQL_USER_UNICODE=True
