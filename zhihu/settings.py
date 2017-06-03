@@ -53,8 +53,8 @@ ROBOTSTXT_OBEY = False
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   # 'zhihu.middlewares.MyCustomDownloaderMiddleware': 543,
     'zhihu.middlewares.RandomUserAgentMiddleware': 400,
+    'zhihu.middlewares.RandomProxyMiddleware': 500,
 }
 
 # Enable or disable extensions
@@ -66,7 +66,6 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'zhihu.pipelines.ZhihuPipeline': 300,
    'zhihu.pipelines.MyTwistedPipeline': 1,
 }
 
@@ -96,6 +95,6 @@ MYSQL_HOST='localhost'
 MYSQL_PORT=3306
 MYSQL_USER='root'
 MYSQL_PWD='root'
-MYSQL_DB='lagoudatabase'
+MYSQL_DB='articlespider'
 MYSQL_CHARSET='utf8'
 MYSQL_USER_UNICODE=True
